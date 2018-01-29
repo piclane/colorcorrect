@@ -3,12 +3,13 @@ from setuptools import setup,Extension
 import sys
 sys.path.append('./src')
 sys.path.append('./test')
-version = file('VERSION').read().strip()
+version = open('VERSION').read().strip()
+platform = sys.platform
 
 setup(name='colorcorrect',
       version=version,
       description="imprement some of color correction algorithms",
-      long_description=file('README').read(),
+      long_description=open('README').read(),
       classifiers=[],
       keywords=('image-processing computer-vision'),
       author='Shunsuke Aihara',
@@ -23,7 +24,7 @@ setup(name='colorcorrect',
                   'cutil/cutil.cpp',
               ],
               include_dirs=['cutil'],
-              libraries=['m'],
+              libraries=['m'] if platform != 'win32' else [],
               extra_compile_args=[],
           ),
       ],

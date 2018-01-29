@@ -1,4 +1,5 @@
 #include "cutil.hpp"
+#include <Python.h>
 #include <vector>
 #include <math.h>
 #include <cfloat>
@@ -418,4 +419,10 @@ coordary create_random_pair(int size, int x,int y){
   }
 
   return ret;
+}
+
+PyMODINIT_FUNC
+PyInit__cutil(void)
+{
+    return NULL;
 }

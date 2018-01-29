@@ -3,6 +3,14 @@ import numpy as np
 from PIL import Image
 
 
+def from_cv2(cv2img):
+    return cv2img[:, :, ::-1]  # BGR -> RGB
+
+
+def to_cv2(cv2img):
+    return cv2img[:, :, ::-1]  # RGB -> BGR
+
+
 def from_pil(pimg):
     pimg = pimg.convert(mode='RGB')
     nimg = np.asarray(pimg)
